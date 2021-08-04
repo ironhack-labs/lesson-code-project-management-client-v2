@@ -52,7 +52,7 @@ function EditProjectPage(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <input type="submit" value="Submit" />
+        <button type="submit">Update Project</button>
       </form>
     </div>
   );
