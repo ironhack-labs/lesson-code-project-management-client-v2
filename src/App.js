@@ -1,20 +1,20 @@
 import "./App.css";
-import { Switch, Route } from "react-router-dom";   // <== IMPORT
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
 
-import Navbar from "./components/Navbar";     // <== IMPORT
-import HomePage from "./pages/HomePage";     // <== IMPORT
+import ProjectListPage from "./pages/ProjectListPage";      //  <== IMPORT
+
 
 function App() {
   return (
     <div className="App">
-      
-      {/* 👇 ADD <Navbar>, <Switch> & <Route> 👇 */}
       <Navbar />
 
       <Switch>      
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/projects" component={ProjectListPage} />   {/*  <== ADD  */}
       </Switch>
-      
     </div>
   );
 }
