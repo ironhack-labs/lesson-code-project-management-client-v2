@@ -2,10 +2,33 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const API_URL = "http://localhost:5000";                  // <== ADD
+
 
 function ProjectDetailsPage (props) {
   const [project, setProject] = useState(null);
+  // We access the URL parameter `:id` and save it in a variable
+  const projectId = props.match.params.id;											  // <== ADD  
+  
+  
+  // Helper function that makes a GET request to the API
+  // using axios and retrieves the project
+  const getProject = () => {                         //  <== ADD A NEW FUNCTION
+    axios
+      .get(`${API_URL}/api/projects/${projectId}`)
+      .then((response) => {
+      	const oneProject = response.data;
+      	setProject(oneProject);
+    	})
+      .catch((error) => console.log(error));
+  };
+  
+  
+  useEffect(()=> {																// <== ADD AN EFFECT
+    getProject();
+  }, [] );
 
+  
   return (
     <div className="ProjectDetails">
       {project && (
@@ -28,6 +51,9 @@ function ProjectDetailsPage (props) {
         <button>Back to projects</button>
       </Link>
           
+      <Link to={`/projects/edit/${projectId}`}>      {/*   <== ADD   */}
+        <button>Edit Project</button>
+      </Link>
       
     </div>
   );
