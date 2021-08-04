@@ -8,11 +8,26 @@ function AddProject(props) {
   const [description, setDescription] = useState("");
 
 
+  const handleSubmit = (e) => {                        // <== ADD
+    e.preventDefault();
+
+    const requestBody = { title, description };
+    axios
+      .post(`${API_URL}/api/projects`, requestBody)
+      .then((response) => {
+        // Reset the state
+        setTitle("");
+        setDescription("");
+      })
+      .catch((error) => console.log(error));
+  };
+
+
   return (
     <div className="AddProject">
       <h3>Add Project</h3>
 
-      <form>
+      <form onSubmit={handleSubmit}>         {/*  <== UPDATE   */}
         <label>Title:</label>
         <input
           type="text"
