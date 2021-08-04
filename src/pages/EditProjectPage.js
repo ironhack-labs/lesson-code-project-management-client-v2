@@ -6,23 +6,12 @@ const API_URL = "http://localhost:5000";
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
-  // We access the URL parameter `:id` and save it in a variable
-  const projectId = props.match.params.id;											 // <== ADD
+  const projectId = props.match.params.id;
   
- 
- // This effect will run after the initial render 
- // and each time the project id coming from
- // the URL parameter `props.match.params.id` changes.
-  useEffect(() => {                                             // <== ADD
+  useEffect(() => {
     axios
       .get(`${API_URL}/api/projects/${projectId}`)
       .then((response) => {
-        /* 
-          We update the state with the project data coming from the repsonse.
-          This way our inputs will show the actual title and description 
-         of the project during the edit.
-        */
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
@@ -32,11 +21,27 @@ function EditProjectPage(props) {
   }, [projectId]);
   
 
+  const handleFormSubmit = (e) => {                                 // <== ADD
+    e.preventDefault();
+    // Create an object representing the body of the PUT request
+    const requestBody = { title, description };
+
+    // Make a PUT request to update the project
+    axios
+      .put(`${API_URL}/api/projects/${projectId}`, requestBody)
+      .then((response) => {
+        // Once the request is resolved successfuly and the project
+        // is updated we navigate back to the details page
+        props.history.push(`/projects/${projectId}`)
+      });
+  };  
+  
+
   return (
     <div className="EditProjectPage">
       <h3>Edit the Project</h3>
 
-      <form>
+      <form onSubmit={handleFormSubmit}>                      {/*  <== UPDATE  */}
         <label>Title:</label>
         <input
           type="text"
