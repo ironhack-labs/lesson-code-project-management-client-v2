@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import AddProject from "./../components/AddProject";     //  <==  IMPORT
+import AddProject from "./../components/AddProject";
 
 const API_URL = "http://localhost:5000";
 
@@ -27,7 +27,7 @@ function ProjectListPage() {
   return (
     <div className="ProjectListPage">
       
-      <AddProject refreshProjects={getAllProjects} />      {/*  <== ADD   */}      
+      <AddProject refreshProjects={getAllProjects} />
       
         {projects.map((project) => {
           return (

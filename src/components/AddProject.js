@@ -18,7 +18,7 @@ function AddProject(props) {
         // Reset the state
         setTitle("");
         setDescription("");
-        props.refreshProjects();                          //   <== ADD        
+        props.refreshProjects();
       })
       .catch((error) => console.log(error));
   };
