@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5005";
 
 function AddProject(props) {
   const [title, setTitle] = useState("");
@@ -12,6 +12,7 @@ function AddProject(props) {
     e.preventDefault();
 
     const requestBody = { title, description };
+    
     axios
       .post(`${API_URL}/api/projects`, requestBody)
       .then((response) => {

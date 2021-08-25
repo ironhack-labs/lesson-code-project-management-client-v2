@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5005";
 
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");

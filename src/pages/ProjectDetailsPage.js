@@ -5,7 +5,7 @@ import AddTask from "../components/AddTask";
 
 import TaskCard from "../components/TaskCard";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5005";
 
 
 function ProjectDetailsPage (props) {
@@ -31,6 +31,7 @@ function ProjectDetailsPage (props) {
   
   return (
     <div className="ProjectDetails">
+    
       {project && (
         <>
           <h1>{project.title}</h1>
