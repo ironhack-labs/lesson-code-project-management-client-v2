@@ -2,8 +2,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-
-import ProjectListPage from "./pages/ProjectListPage";      //  <== IMPORT
+import ProjectListPage from "./pages/ProjectListPage";
 
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
 
       <Switch>      
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/projects" component={ProjectListPage} />   {/*  <== ADD  */}
+        <Route exact path="/projects" component={ProjectListPage} />
       </Switch>
     </div>
   );
