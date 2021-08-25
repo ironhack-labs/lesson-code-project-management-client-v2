@@ -12,6 +12,7 @@ function AddProject(props) {
     e.preventDefault();
 
     const requestBody = { title, description };
+    
     axios
       .post(`${API_URL}/api/projects`, requestBody)
       .then((response) => {
