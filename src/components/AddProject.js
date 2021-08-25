@@ -8,7 +8,7 @@ function AddProject(props) {
   const [description, setDescription] = useState("");
 
 
-  const handleSubmit = (e) => {                        // <== ADD
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const requestBody = { title, description };
@@ -19,6 +19,7 @@ function AddProject(props) {
         // Reset the state
         setTitle("");
         setDescription("");
+        props.refreshProjects();                          //   <== ADD        
       })
       .catch((error) => console.log(error));
   };
@@ -28,7 +29,7 @@ function AddProject(props) {
     <div className="AddProject">
       <h3>Add Project</h3>
 
-      <form onSubmit={handleSubmit}>         {/*  <== UPDATE   */}
+      <form onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
           type="text"
