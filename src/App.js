@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProjectListPage from "./pages/ProjectListPage";
 
-import ProjectDetailsPage from "./pages/ProjectDetailsPage";      //  <== IMPORT
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 
 
 function App() {
@@ -15,8 +15,6 @@ function App() {
       <Switch>      
         <Route exact path="/" component={HomePage} />
         <Route exact path="/projects" component={ProjectListPage} />
-        
-         {/* 👇 ADD  */}
         <Route exact path="/projects/:id" component={ProjectDetailsPage} />        
       </Switch>
     </div>
