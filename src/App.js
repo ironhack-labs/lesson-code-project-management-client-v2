@@ -4,8 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProjectListPage from "./pages/ProjectListPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
-
-import EditProjectPage from "./pages/EditProjectPage";     //  <== IMPORT
+import EditProjectPage from "./pages/EditProjectPage";
 
 function App() {
   return (
@@ -16,8 +15,6 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/projects" component={ProjectListPage} />
         <Route exact path="/projects/:id" component={ProjectDetailsPage} />
-        
-         {/*  👇  ADD  👇  */}
         <Route exact path="/projects/edit/:id" component={EditProjectPage} />           
       </Switch>
     </div>
