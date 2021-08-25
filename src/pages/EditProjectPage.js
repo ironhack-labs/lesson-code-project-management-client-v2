@@ -12,11 +12,6 @@ function EditProjectPage(props) {
     axios
       .get(`${API_URL}/api/projects/${projectId}`)
       .then((response) => {
-        /* 
-          We update the state with the project data coming from the response.
-          This way our inputs will show the actual title and description 
-          of the project during the edit.
-        */
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
@@ -38,13 +33,11 @@ function EditProjectPage(props) {
   };
   
   
-  const deleteProject = () => {                               //  <== ADD
-    // Make a DELETE request to delete the project
+  const deleteProject = () => {
+    
     axios
       .delete(`${API_URL}/api/projects/${projectId}`)
       .then(() => {
-        // Once the request is resolved successfully and the project
-        // is deleted navigate back to the list of projects.
         props.history.push("/projects");
       })
       .catch((err) => console.log(err));
@@ -74,7 +67,7 @@ function EditProjectPage(props) {
         <button type="submit">Update Project</button>
       </form>
 
-      <button onClick={deleteProject}>Delete Project</button>       {/* <== ADD  */}      
+      <button onClick={deleteProject}>Delete Project</button>
     </div>
   );
 }
