@@ -27,7 +27,7 @@ function ProjectListPage() {
   return (
     <div className="ProjectListPage">
       
-      <AddProject refreshProjects={getAllProjects} />      {/*  <== ADD   */}      
+      <AddProject refreshProjects={getAllProjects} />
       
         {projects.map((project) => {
           return (
