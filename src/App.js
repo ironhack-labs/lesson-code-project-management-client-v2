@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/projects" component={ProjectListPage} />
         
          {/* 👇 ADD  */}
-        <Route exact path="/projects/:id" component={ProjectDetailsPage} />        
+        <Route exact path="/projects/:projectId" component={ProjectDetailsPage} />        
       </Switch>
     </div>
   );
