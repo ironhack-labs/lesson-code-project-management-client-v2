@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
@@ -6,7 +7,7 @@ const API_URL = "http://localhost:5005";
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const projectId = props.match.params.id;
+  const { projectId } = useParams();
   
   useEffect(() => {
     axios

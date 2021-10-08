@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
-
 import ProjectCard from "./../components/ProjectCard";
 import AddProject from "../components/AddProject";     //  <==  IMPORT
 
+const API_URL = "http://localhost:5005";
 
 function ProjectListPage() {
   const [projects, setProjects] = useState([]);

@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
+import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
-import { Link } from "react-router-dom";
 import AddTask from "../components/AddTask";
-
 import TaskCard from "../components/TaskCard";
+
 
 const API_URL = "http://localhost:5005";
 
 
 function ProjectDetailsPage (props) {
   const [project, setProject] = useState(null);
-  const projectId = props.match.params.id;
-  
+  const { projectId } = useParams();
   
   const getProject = () => {
     axios
