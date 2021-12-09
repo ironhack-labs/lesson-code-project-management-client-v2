@@ -1,5 +1,5 @@
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ProjectListPage from "./pages/ProjectListPage";
@@ -11,12 +11,12 @@ function App() {
     <div className="App">
       <Navbar />
 
-      <Switch>      
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/projects" component={ProjectListPage} />
-        <Route exact path="/projects/:projectId" component={ProjectDetailsPage} />
-        <Route exact path="/projects/edit/:projectId" component={EditProjectPage} />           
-      </Switch>
+      <Routes>      
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/projects" element={<ProjectListPage />} />
+        <Route exact path="/projects/:projectId" element={<ProjectDetailsPage />} />
+        <Route exact path="/projects/edit/:projectId" element={<EditProjectPage />} />           
+      </Routes>
     </div>
   );
 }

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import ProjectCard from "./../components/ProjectCard";
-import AddProject from "../components/AddProject";     //  <==  IMPORT
+import AddProject from "../components/AddProject";
 
 const API_URL = "http://localhost:5005";
 

@@ -7,6 +7,7 @@ const API_URL = "http://localhost:5005";
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  
   const { projectId } = useParams();
   
   useEffect(() => {
