@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useNavigate } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 
@@ -9,6 +9,7 @@ function EditProjectPage(props) {
   const [description, setDescription] = useState("");
   
   const { projectId } = useParams();
+  const navigate = useNavigate();
   
   useEffect(() => {
     axios
@@ -30,7 +31,7 @@ function EditProjectPage(props) {
     axios
       .put(`${API_URL}/api/projects/${projectId}`, requestBody)
       .then((response) => {
-        props.history.push(`/projects/${projectId}`)
+        navigate(`/projects/${projectId}`)
       });
   };
   
@@ -40,7 +41,7 @@ function EditProjectPage(props) {
     axios
       .delete(`${API_URL}/api/projects/${projectId}`)
       .then(() => {
-        props.history.push("/projects");
+        navigate("/projects");
       })
       .catch((err) => console.log(err));
   };  
